@@ -1,6 +1,6 @@
 !/bin/bash
 
-sudo pacman -Syyu i3-wm vim neofetch thunar alacritty picom firefox git base-devel sddm
+sudo pacman -Syyu i3-wm vim neofetch thunar alacritty picom firefox git base-devel sddm arandr
 
 git clone https://aur.archlinux.org/yay.git
 

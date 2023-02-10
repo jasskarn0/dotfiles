@@ -1,12 +1,20 @@
 !/bin/bash
 
-sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom firefox git base-devel arandr xorg-server polybar zsh
+sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom firefox base-devel arandr xorg-server polybar zsh
+
+mkdir ~/.config/bspwm
+mkdir ~/.config/sxhkd
+
+cp bspwmrc ~/.config/bspwm/
+cp sxhkd ~/.config/sxhkd/
 
 git clone https://aur.archlinux.org/yay.git
 
 cd yay
 
 makepkg -si
+
+sudo rm -R yay
 
 yay -S ly
 

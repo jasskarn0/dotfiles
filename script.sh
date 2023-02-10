@@ -5,8 +5,8 @@ sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom firefox base-d
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 
-cp bspwmrc ~/.config/bspwm/
-cp sxhkd ~/.config/sxhkd/
+cp bspwmrc ~/.config/bspwmrc/
+cp sxhkd ~/.config/sxhkdrc/
 
 git clone https://aur.archlinux.org/yay.git
 

@@ -5,6 +5,9 @@
 # terminal emulator
 super + Return
 	alacritty
+#brave
+super + b
+	brave
 
 # program launcher
 super + @space

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom firefox base-devel arandr xorg-server polybar zsh
+sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom base-devel arandr xorg-server polybar zsh
 
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
@@ -15,8 +15,6 @@ mkdir ~/.powerlevel10k
 
 sudo cp "MesloLGS NF Regular.ttf" /usr/share/fonts
 
-
-
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
@@ -26,7 +24,7 @@ cd yay
 
 makepkg -si
 
-sudo rm -R yay
+yay -S brave-bin
 
 yay -S ly
 

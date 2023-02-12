@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir ~/.config
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 mkdir ~/.config/alacritty

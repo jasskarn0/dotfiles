@@ -2,6 +2,7 @@
 
 sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom base-devel arandr xorg-server polybar zsh
 
+mkdir ~/.config
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 mkdir ~/.config/alacritty

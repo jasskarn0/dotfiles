@@ -6,8 +6,8 @@ mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 mkdir ~/.config/alacritty
 
-cp bspwmrc ~/.config/bspwmrc/
-cp sxhkd ~/.config/sxhkdrc/
+cp bspwmrc ~/.config/bspwm/
+cp sxhkdrc ~/.config/sxhkd/
 cp picom.conf ~/.config/
 cp alacritty.yml ~/.config/alacritty/alacritty.yml
 

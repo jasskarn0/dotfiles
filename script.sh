@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom xorg-xrdb base-devel arandr xorg-server polybar zsh
+sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom xorg-xrdb base-devel arandr xorg-server polybar zsh zsh-syntax-highlighting zsh-autosuggestions
 
 echo > ~/.Xresources
 xrdb ~/.Xresources

@@ -1,6 +1,10 @@
 #!/bin/bash
 
-sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom base-devel arandr xorg-server polybar zsh
+sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom xorg-xrdb base-devel arandr xorg-server polybar zsh
+
+echo > ~/.Xresources
+xrdb ~/.Xresources
+xrdb -merge ~/.Xresources
 
 mkdir ~/.config
 mkdir ~/.config/bspwm

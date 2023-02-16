@@ -21,6 +21,7 @@ cp picom.conf ~/.config/
 cp alacritty.yml ~/.config/alacritty/alacritty.yml
 rm ~/.zshrc
 cp .zshrc ~/.zshrc
+cp -R volantes_cursors /usr/share/icons/
 
 
 #Font install

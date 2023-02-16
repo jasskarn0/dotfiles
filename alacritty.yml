@@ -4,7 +4,8 @@
 # Font configuration
 font:
   normal:
-    family: "MesloLGS NF" 
+    #family: "MesloLGS NF" 
+    family: "JetbrainsMono Nerd Font"
 
       #window.opacity: 0.5
 

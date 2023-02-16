@@ -21,8 +21,11 @@ cp picom.conf ~/.config/
 cp alacritty.yml ~/.config/alacritty/alacritty.yml
 rm ~/.zshrc
 cp .zshrc ~/.zshrc
-cp -R volantes_cursors /usr/share/icons/
 
+#cursor set
+sudo cp -R volantes_cursors /usr/share/icons/
+sudo rm /usr/share/icons/default/index.theme
+sudo cp index.theme /usr/share/icons/default/
 
 #Font install
 sudo cp "MesloLGS NF Regular.ttf" /usr/share/fonts

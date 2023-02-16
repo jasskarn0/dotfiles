@@ -25,6 +25,7 @@ cp .zshrc ~/.zshrc
 
 #Font install
 sudo cp "MesloLGS NF Regular.ttf" /usr/share/fonts
+sudo cp "JetBrains Mono Regular Nerd Font Complete.ttf" /usr/share/fonts
 
 #Zsh-Theme Install
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k

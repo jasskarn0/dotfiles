@@ -16,7 +16,7 @@ xrdb -merge ~/.Xresources
 #!/bin/bash
 
 ############################################
-MAKE THE DIRECTORIES FOR THE CONFIG FILES
+#MAKE THE DIRECTORIES FOR THE CONFIG FILES##
 ############################################
 # Define an array of directory paths
 DIR_PATHS=(~/.config ~/.config/bspwm ~/.config/sxhkd ~/.config/alacritty ~/.powerlevel10k)
@@ -34,7 +34,7 @@ do
   fi
 done
 ###########################################
-COPY FILES INTO DIRECTORIES MADE
+#####COPY FILES INTO DIRECTORIES MADE#####
 ###########################################
 # Define the source directory containing the files to copy
 SOURCE_DIR="."
@@ -69,9 +69,11 @@ do
   cp "${SOURCE_DIR}/${FILE_NAME}" "${DESTINATION_DIR}"
   echo "Copied file ${FILE_NAME} to ${DESTINATION_DIR}"
 done
+
+############################################
+###############CURSOR SET###################
 ############################################
 
-#cursor set
 sudo cp -R volantes_cursors /usr/share/icons/
 sudo rm /usr/share/icons/default/index.theme
 sudo cp index.theme /usr/share/icons/default/
@@ -84,6 +86,10 @@ sudo cp "JetBrains Mono Regular Nerd Font Complete.ttf" /usr/share/fonts/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
+##############################
+#####YAY SETUP AND APPS#######
+##############################
+
 #Yay Install
 git clone https://aur.archlinux.org/yay.git
 
@@ -91,11 +97,26 @@ cd yay
 
 makepkg -si
 
-#Brave Install
+##############################
+#######BRAVE-INSTALL##########
+##############################
+
 yay -S brave-bin
 
-yay -S ly
+##############################
+########LOGIN-MANAGER#########
+##############################
 
+yay -S ly
 #Login Manager
 sudo systemctl enable ly.service
 sudo systemctl set-default graphical.target
+
+##############################
+#########FONT-AWESOME#########
+##############################
+
+yay -S ttf-fontawesome-5
+
+##############################
+

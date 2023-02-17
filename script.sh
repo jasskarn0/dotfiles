@@ -8,11 +8,29 @@ xrdb ~/.Xresources
 xrdb -merge ~/.Xresources
 
 #Making Directories for dotfiles
-mkdir ~/.config
-mkdir ~/.config/bspwm
-mkdir ~/.config/sxhkd
-mkdir ~/.config/alacritty
-mkdir ~/.powerlevel10k
+#mkdir ~/.config
+#mkdir ~/.config/bspwm
+#mkdir ~/.config/sxhkd
+#mkdir ~/.config/alacritty
+#mkdir ~/.powerlevel10k
+#!/bin/bash
+
+# Define an array of directory paths
+DIR_PATHS=(~/.config ~/.config/bspwm ~/.config/sxhkd ~/.config/alacritty ~/.powerlevel10k)
+
+# Loop through the array and check if each directory already exists
+for DIR_PATH in "${DIR_PATHS[@]}"
+do
+  if [ -d "$DIR_PATH" ]
+  then
+    echo "Directory $DIR_PATH already exists"
+  else
+    # Create the directory
+    mkdir -p "$DIR_PATH"
+    echo "Directory $DIR_PATH created"
+  fi
+done
+
 
 #Copying dotfiles
 cp bspwmrc ~/.config/bspwm/

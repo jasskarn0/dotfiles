@@ -117,7 +117,7 @@ sudo systemctl set-default graphical.target
 #########FONT-AWESOME#########
 ##############################
 
-yay -S ttf-fontawesome-5
+yay -S ttf-font-awesome-5
 
 ##############################
 

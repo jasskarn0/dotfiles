@@ -19,7 +19,7 @@ xrdb -merge ~/.Xresources
 #MAKE THE DIRECTORIES FOR THE CONFIG FILES##
 ############################################
 # Define an array of directory paths
-DIR_PATHS=(~/.config ~/.config/bspwm ~/.config/sxhkd ~/.config/alacritty ~/.powerlevel10k)
+DIR_PATHS=(~/.config ~/.config/bspwm ~/.config/sxhkd ~/.config/alacritty ~/.powerlevel10k ~/.config/polybar)
 
 # Loop through the array and check if each directory already exists
 for DIR_PATH in "${DIR_PATHS[@]}"
@@ -46,10 +46,11 @@ DESTINATION_DIRS=(
   "$HOME/.config"
   "$HOME/.config/alacritty"
   "$HOME"
+  "$HOME/.config/polybar"
 )
 
 # Define an array of file names to copy
-FILE_NAMES=("bspwmrc" "sxhkdrc" "picom.conf" "alacritty.yml" ".zshrc")
+FILE_NAMES=("bspwmrc" "sxhkdrc" "picom.conf" "alacritty.yml" ".zshrc" "left.ini" "right.ini" "center.ini" "launch.sh")
 
 # Loop through the array of file names and copy each file to the corresponding destination directory
 for i in "${!FILE_NAMES[@]}"

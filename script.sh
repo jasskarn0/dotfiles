@@ -47,6 +47,9 @@ DESTINATION_DIRS=(
   "$HOME/.config/alacritty"
   "$HOME"
   "$HOME/.config/polybar"
+  "$HOME/.config/polybar"
+  "$HOME/.config/polybar"
+  "$HOME/.config/polybar"
 )
 
 # Define an array of file names to copy

@@ -14,8 +14,7 @@ xrdb -merge ~/.Xresources
 #mkdir ~/.config/alacritty
 #mkdir ~/.powerlevel10k
 #!/bin/bash
-
-############################################
+###########################################
 #MAKE THE DIRECTORIES FOR THE CONFIG FILES##
 ############################################
 # Define an array of directory paths

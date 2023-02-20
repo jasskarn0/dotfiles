@@ -73,8 +73,8 @@ do
   echo "Copied file ${FILE_NAME} to ${DESTINATION_DIR}"
 done
 
+cp wallpaper.jpg ~/
 cp -R Dracula-theme ~/.config/alacritty
-sudo cp -R fontawesome-free-5.15.4-desktop /usr/share/fonts/
 sudo cp -R fontawesome-free-6.3.0-desktop /usr/share/fonts/
 ############################################
 ###############CURSOR SET###################

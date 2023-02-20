@@ -73,6 +73,7 @@ do
   echo "Copied file ${FILE_NAME} to ${DESTINATION_DIR}"
 done
 
+cp -R Dracula-theme ~/.config/alacritty
 ############################################
 ###############CURSOR SET###################
 ############################################

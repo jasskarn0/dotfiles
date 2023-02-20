@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom xorg-xrdb base-devel arandr xorg-server polybar zsh zsh-syntax-highlighting lsd zsh-autosuggestions feh xorg-xsetroot brightnessctl networkmanager pulseaudio alsa-utils pulseaudio-alsa
+sudo pacman -Syyu sxhkd bspwm vim neofetch thunar alacritty picom xorg-xrdb base-devel arandr xorg-server polybar zsh zsh-syntax-highlighting lsd zsh-autosuggestions feh xorg-xsetroot brightnessctl networkmanager pulseaudio alsa-utils pulseaudio-alsa lxappearance
 
 #DPI Settings enable
 echo > ~/.Xresources
@@ -129,3 +129,4 @@ yay -S ttf-font-awesome-5
 ##############################
 
 yay -S betterlockscreen
+yay -S nordic-darker-theme

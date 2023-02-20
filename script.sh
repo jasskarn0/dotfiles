@@ -74,6 +74,8 @@ do
 done
 
 cp -R Dracula-theme ~/.config/alacritty
+sudo cp -R fontawesome-free-5.15.4-desktop /usr/share/fonts/
+sudo cp -R fontawesome-free-6.3.0-desktop /usr/share/fonts/
 ############################################
 ###############CURSOR SET###################
 ############################################

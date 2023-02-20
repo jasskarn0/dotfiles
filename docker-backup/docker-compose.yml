@@ -1,0 +1,187 @@
+version: "2.1"
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=nordvpn
+      - OPENVPN_USER=5ZWMVPRRF3TRz24KudK15qhu
+      - OPENVPN_PASSWORD=3Syt7Ka7aif239immzyYU7Jy
+      - SERVER_REGIONS=Canada
+    ports:
+      - 7773:8112    #deluge
+      - 7774:6881     #deluge
+      - 7775:6881/udp     #deluge
+      - 7780:5800     #firefox
+    restart: unless-stopped
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/dockerhost/docker-configs/portainer:/data
+    ports:
+      - 7772:9443
+    restart: unless-stopped
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Vacouver
+    volumes:
+      - /home/dockerhost/docker-configs/deluge:/config
+      - /home/dockerhost/Downloads:/downloads
+      - /home/dockerhost/media/movies:/movies
+      - /home/dockerhost/media/tvshows:/tvshows
+    network_mode: "service:gluetun"
+    restart: unless-stopped
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Vancouver
+    volumes:
+      - /home/dockerhost/docker-configs/jellyfin/:/config
+      - /home/dockerhost/media/tvshows:/tv
+      - /home/dockerhost/media/movies:/movies 
+    ports:
+      - 7776:8989
+    restart: unless-stopped
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Vancouver
+    volumes:
+      - /home/dockerhost/docker-configs/jellyfin:/config
+      - /home/dockerhost/media/tvshows:/data/tvshows
+      - /home/dockerhost/media/movies:/data/movies
+    ports:
+      - 7777:8096
+    restart: unless-stopped
+  filezilla:
+    image: jlesage/filezilla
+    container_name: filezilla
+    volumes:
+      - /home/dockerhost/docker-configs/filezilla:/config:rw
+      - /home/dockerhost/Downloads:/downloads
+    ports:
+      - 7779:5800
+    restart: unless-stopped
+  firefox:
+    image: jlesage/firefox
+    container_name: firefox
+    volumes:
+      - /home/dockerhost/docker-configs/firefox:/config:rw
+    network_mode: "service:gluetun"
+    shm_size: "2gb"
+    restart: unless-stopped
+  jdownloader:
+    image: jlesage/jdownloader-2
+    container_name: jdownloader2
+    volumes:
+      - /home/dockerhost/docker-configs/jdownloader2:/config:rw
+      - /home/dockerhost/Downloads:/output:rw
+      - /home/dockerhost/media/movies:/movies
+      - /home/dockerhost/media/tvshows:/tvshows
+    ports:
+      - 7781:5800
+    restart: unless-stopped
+  homer:
+    image: b4bz/homer:latest
+    container_name: homerr
+    volumes:
+      - /home/dockerhost/docker-configs/homer:/www/assets
+    ports:
+      - 7782:8080
+    restart: unless-stopped
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Vancouver
+    volumes:
+      - /home/dockerhost/docker-configs/radarr:/config
+      - /home/dockerhost/media/movies:/movies #optional
+      - /home/dockerhost/Downloads:/downloads
+    ports:
+      - 7784:7878
+    restart: unless-stopped
+  nginx:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx
+    volumes:
+      - /home/dockerhost/docker-configs/nginx:/data
+      - /home/dockerhost/docker-configs/letsencrypt:/etc/letsencrypt
+    ports:
+      - 7785:443
+      - 7787:80
+      - 7786:81
+    restart: unless-stopped
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime_kuma
+    volumes: 
+      - /home/dockerhost/docker-configs/uptime-kuma:/app/data
+    ports:
+      - 7788:3001
+    restart: unless-stopped
+  jackett:
+    image: lscr.io/linuxserver/jackett:latest
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Vancouver
+    volumes:
+      - /home/dockerhost/docker-configs/jackett:/config
+    ports:
+      - 7789:9117
+    restart: unless-stopped
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Vancouver
+    volumes:
+      - /home/dockerhost/docker-configs/nextcloud/config:/config
+      - /home/dockerhost/docker-configs/nextcloud/data:/data
+    ports:
+      - 7790:443
+    restart: unless-stopped
+  filebot:
+    image: jlesage/filebot
+    container_name: filebot
+    volumes:
+      - /home/dockerhost/docker-configs/filebot:/config:rw
+      - /home/dockerhost/media:/storage:rw
+    ports:
+      - 7778:5800
+    restart: unless-stopped
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    volumes:
+      - /home/dockerhost/Downloads:/srv/Downloads
+      - /home/dockerhost/media:/srv/Media
+    ports:
+      - 7791:80
+    restart: unless-stopped
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --cleanup -s "0 30 4 * * *" 
+    restart: unless-stopped

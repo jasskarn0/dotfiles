@@ -122,4 +122,7 @@ sudo systemctl set-default graphical.target
 yay -S ttf-font-awesome-5
 
 ##############################
+##########LOCKSCREEN##########
+##############################
 
+yay -S betterlockscreen

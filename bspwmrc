@@ -20,4 +20,4 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-center https://raw.githubusercontent.com/jasskarn0/dotfiles/master/wallpaper.jpg
+feh --bg-center ~/wallpaper.jpg

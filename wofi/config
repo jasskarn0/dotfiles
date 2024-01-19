@@ -1,9 +1,9 @@
 hide_scroll=true
 show=drun
 width=30%
-lines=8
+lines=5
 line_wrap=word
-term=kitty
+term=konsole
 allow_markup=true
 always_parse_args=false
 show_all=true

@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -Syu git vim base-devel firefox flatpak sddm pipewire wireplumber xdg-desktop-portal-hyprland polkit-kde-agent qt5-wayland qt6-wayland hyprland mako waybar wofi
+sudo pacman -Syu git vim base-devel firefox flatpak sddm pipewire wireplumber xdg-desktop-portal-hyprland polkit-kde-agent qt5-wayland qt6-wayland hyprland mako waybar wofi cliphist
 
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin

@@ -18,7 +18,7 @@ zstyle :compinstall filename '/home/jaskaran/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
